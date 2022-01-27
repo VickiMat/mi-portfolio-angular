@@ -1,0 +1,203 @@
+/* You can add global styles to this file, and also import other style files */
+
+  
+  #argprog {
+      font-family: "Lucida Console", Monaco, monospace;
+      font-size: 15px;
+      letter-spacing: 2px;
+      word-spacing: 2px;
+      color: #000000;
+      font-weight: 400;
+      text-decoration: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
+      text-align: justify;
+      padding-top: 5%;
+      }
+  
+  a.login {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+    
+      text-decoration: none;
+      color: initial;
+      border: none;
+      color: white;
+      font-size: 20px;
+      background: #4D009974;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width:auto;
+      text-align:center;
+      margin-left:50%;
+    }
+  
+    a.login:hover {
+      background: #39017098;
+    }
+      
+  
+  .editar {
+    padding-left:50%;
+  }
+  #MenuNav {
+    text-align:center;
+  }
+  /* banner y foto de perfil */
+  .banner{
+    background-image:"";
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 200px;
+    padding: 30px;
+    max-height: 400px;
+    width:100%;
+    position: relative;
+  }
+  .nombre-titulo{
+    text-align: center;
+  }
+  #foto-perfil{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    border: solid 3px darkviolet;
+    position: absolute;
+    margin-left: 5%;
+  }
+  /*acercar de mi*/ 
+  .descripcion {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin: 100px 5px;
+    padding-top: 50px;
+  
+  }
+  
+  .descripcion p {
+    width: 70%;
+    margin:auto;
+    padding: 10px;
+  }
+
+  section{
+    color: black;
+    border: 1px solid #fff;
+    border-radius: 0 10px 0 10px;
+    box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+    position: relative;
+    margin: 0px 5px 0px 5px;
+  }
+  
+  /*BOTONES PARA PAGINA DE EDICION */
+  .fa-white{
+    color:white;
+  }
+  .boton-edicion {
+    border-radius: 50%;
+    background-color: #4D009974;
+    width: 60px;
+    height: 60px;
+    border: none;
+  
+  }
+  .boton-edicion:hover{
+    background-color: #39017098;
+  }
+  .botones-acerca-de {
+    text-align:end;
+    margin: auto;
+    width: 80%;
+  }
+  .editar-img {
+    margin-left: 165px;
+    position: absolute;
+    margin-top:150px;
+  }
+  
+  /* titulos distintas secciones */ 
+  .titulos {
+    text-align:center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    background: linear-gradient(315deg, #ffffff 0%, #4D009974);
+    color: black;
+    border: 1px solid #fff;
+      padding: 5px 15px;
+    border-radius: 0 10px 0 10px;
+      box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+    position: relative;
+  }
+  
+  /*Botones redes sociales*/
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+  
+  .wrapper .button{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    margin: 0 5px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:hover{
+    width: 200px;
+    text-decoration: none;
+  }
+  .wrapper .button .icon{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:nth-child(1):hover .icon{
+    background: #4267B2;
+  }
+  .wrapper .button:nth-child(2):hover .icon{
+    background: #1DA1F2;
+  }
+  .wrapper .button:nth-child(3):hover .icon{
+    background: #E1306C;
+  }
+  .wrapper .button:nth-child(4):hover .icon{
+    background: #333;
+  }
+  .wrapper .button .icon i{
+    font-size: 25px;
+    line-height: 60px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:hover .icon i{
+    color: #fff;
+  }
+  .wrapper .button span{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-left: 10px;
+    transition: all 0.3s ease-out;
+  }
+  .wrapper .button:nth-child(1) span{
+    color: #4267B2;
+  }
+  .wrapper .button:nth-child(2) span{
+    color: #1DA1F2;
+  }
+  .wrapper .button:nth-child(3) span{
+    color: #E1306C;
+  }
+  .wrapper .button:nth-child(4) span{
+    color: #333;
+  }

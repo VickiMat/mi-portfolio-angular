@@ -1,0 +1,14 @@
+{
+	"Persona": 
+		{
+			"fullName": "Victoria Mathurin",
+			"dateOfBirth": "28/06/1994",
+			"aboutMe": "Matemático, físico e informático argentino considerado por muchos como el padre de la computación en la Argentina.",
+			"mail": "vickimathurin94@gmail.com",
+			"backImage": "https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-shading-red-shard-geometry-banner-background-shadingred-debrisred-glowgeometry-image_80184.jpg",
+			"image": "https://i2.wp.com/imagenes.milenio.com/E-yJnq9EhkZhWaU7T_2utkyTymQ=/958x596/smart/https://www.milenio.com/uploads/media/2018/10/05/steve-jobs-perdio-vida-consecuencia_0_199_1193_742.jpg?w=640&ssl=1",
+			"position": "Desarrolladora web Full Stack",
+			"ubication": "Rosario, Santa Fe (Argentina) "
+		}
+	
+}

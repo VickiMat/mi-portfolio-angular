@@ -9,12 +9,16 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
 })
 export class HeaderComponent implements OnInit {
 
+  persona: any;
+
   faEdit = faEdit;
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor(private datosPortfolio: PortfolioService) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos();
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
+      console.log(data)
+      this.persona=data["Persona"];
+    });
   }
-
 }

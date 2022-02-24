@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
   
-  a.login {
+ /* a.login {
         -webkit-appearance: button;
         -moz-appearance: button;
         appearance: button;
@@ -69,7 +69,7 @@
     margin: 0px 10px 0px 10px;
   }
   
-  /*BOTONES PARA PAGINA DE EDICION */
+  /*BOTONES PARA PAGINA DE EDICION 
   .fa-white{
     color:white;
   }
@@ -83,7 +83,7 @@
   .boton-edicion:hover{
     border-color: black;
 
-  }
+  } */
   .editar-img {
     margin-left: 165px;
     position: absolute;

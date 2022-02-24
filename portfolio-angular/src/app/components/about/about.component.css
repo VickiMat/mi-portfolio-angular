@@ -1,5 +1,25 @@
-.titulos-about{
-    display: flex;
+.flex-about{
+  display: flex;
   align-items: auto;
-  justify-content: space-around;
+  justify-content: space-between;
 }
+
+
+.fa-white{
+  color:white;
+  background-color: none;
+}
+
+button{
+  background-color: transparent;
+  border-color: darkmagenta;
+  border-radius: 10px;
+  width: 60px;
+  height: auto;
+}
+
+button:hover{
+  border-color: white;
+}
+
+

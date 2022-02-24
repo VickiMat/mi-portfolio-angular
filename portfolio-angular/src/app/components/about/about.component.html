@@ -1,10 +1,15 @@
  <!-- descripcion personal-->
  <section id="about">
     <div class="about">
-        <h2 class="titulos about">Acerca de mí<button class="boton-edicion" data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Modificar descripción"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button></h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, quam natus! Voluptates, laboriosam?
-        Itaque libero consequatur, delectus, molestiae consectetur optio animi similique voluptatibus
-        ea ratione dolor aliquid deleniti suscipit officia.</p>
+        <h2 class="titulos about">Acerca de mí
+            <button data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Modificar descripción"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button>
+            <button data-bs-toggle="tooltip" data-bs-placement="top"
+            title="Eliminar descripción"><fa-icon [icon]="faTrash" class="fa-white"></fa-icon></button>
+        </h2>
+    <p>{{persona.aboutMe}}</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis cum rerum harum, 
+        nesciunt facere in delectus tempore corrupti numquam fugit reiciendis molestiae architecto asperiores. 
+        Perspiciatis magnam quidem rem dicta nemo.</p>
     </div>
 </section>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-about',
@@ -8,10 +10,15 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 })
 export class AboutComponent implements OnInit {
   faEdit = faEdit;
+  faTrash = faTrash
+  persona: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: PortfolioService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    this.datosPortfolio.obtenerDatos().subscribe(data => {
+      this.persona=data["Persona"];
+    });
   }
 
 }

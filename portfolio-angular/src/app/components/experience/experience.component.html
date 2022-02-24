@@ -4,3 +4,18 @@
         Itaque libero consequatur, delectus, molestiae consectetur optio animi similique voluptatibus
         ea ratione dolor aliquid deleniti suscipit officia.</p>
 </section>
+<section id="experiencia">
+    <h1 class="titulos">Experiencia</h1>
+    <div class="container-fluid">
+      <div *ngFor="let item of experiencia" class="row">
+          <div class="col-2">
+              <img [src]="item.img" class="img-fluid" alt="">
+          </div>
+          <div class="col">
+              <h2>{{item.position}}</h2>
+              <p>{{item.company}} - {{item.mode}}</p>
+              <p>{{item.start}} - {{item.end}}</p>
+          </div>
+      </div>
+    </div>
+</section>

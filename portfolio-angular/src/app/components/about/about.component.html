@@ -2,7 +2,7 @@
  <section id="about">
     <div class="about">
         <h2 class="titulos about">Acerca de mí
-            <button data-bs-toggle="tooltip" data-bs-placement="top"
+            <button (click)="openForm()" data-bs-toggle="tooltip" data-bs-placement="top"
             title="Modificar descripción"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button>
             <button data-bs-toggle="tooltip" data-bs-placement="top"
             title="Eliminar descripción"><fa-icon [icon]="faTrash" class="fa-white"></fa-icon></button>
@@ -12,4 +12,23 @@
         nesciunt facere in delectus tempore corrupti numquam fugit reiciendis molestiae architecto asperiores. 
         Perspiciatis magnam quidem rem dicta nemo.</p>
     </div>
+    
+<!-- Modal para edicion -->
+    <div class="modal" tabindex="-1" [ngStyle]="{'display':displayStyle}">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Descripción personal</h4>
+            </div>
+            <div class="modal-body">
+                <label for="descripcionPersonal" class="form-label"></label>
+                <textarea class="form-control" id="descripcionPersonal" rows="3">{{persona.aboutMe}}</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-footer fa-white" (click)="guardarCambios()">Guardar cambios</button>
+                <button (click)="closeForm()" type="button" id="cerrarModalEncabezado" class="btn btn-footer fa-white" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </section>

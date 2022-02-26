@@ -16,4 +16,5 @@ export class PortfolioService {
   obtenerDatosExperiencia():Observable<any>{
     return this.http.get('./assets/data/experience.json');
   }
+
 }

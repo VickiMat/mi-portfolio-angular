@@ -14,8 +14,7 @@ button{
   background-color: transparent;
   border-color: darkmagenta;
   border-radius: 10px;
-  width: 60px;
-  height: auto;
+  
 }
 
 button:hover{
@@ -23,3 +22,18 @@ button:hover{
 }
 
 
+.modal-header{
+  background-color: rgba(178,133,199,1);
+  color:white;
+  justify-content: center;
+}
+
+.modal-footer{
+  background-color: rgba(178,133,199,0.30);
+}
+.modal-body{
+  background-color: rgba(178,133,199,0.30);
+}
+.btn-footer{
+  background-color: rgba(178,133,199,1);
+}

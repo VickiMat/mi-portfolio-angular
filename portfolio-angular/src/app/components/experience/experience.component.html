@@ -5,16 +5,20 @@
         ea ratione dolor aliquid deleniti suscipit officia.</p>
 </section>
 <section id="experiencia">
-    <h1 class="titulos">Experiencia</h1>
+    <h1 class="titulos">Experiencia laboral</h1>
     <div class="container-fluid">
       <div *ngFor="let item of experiencia" class="row">
           <div class="col-2">
               <img [src]="item.img" class="img-fluid" alt="">
           </div>
-          <div class="col">
+          <div class="col-3">
               <h2>{{item.position}}</h2>
               <p>{{item.company}} - {{item.mode}}</p>
               <p>{{item.start}} - {{item.end}}</p>
+          </div>
+          <div class="col-4">
+              <h2>Tecnologías usadas</h2>
+              <p>{{item.description}}</p>
           </div>
       </div>
     </div>

@@ -1,34 +1,58 @@
- <!-- descripcion personal-->
- <section id="about">
-    <div class="about">
-        <h2 class="titulos about">Acerca de mí
-            <button (click)="openForm()" data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Modificar descripción"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button>
-            <button data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Eliminar descripción"><fa-icon [icon]="faTrash" class="fa-white"></fa-icon></button>
-        </h2>
-    <p>{{persona.aboutMe}}</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis cum rerum harum, 
-        nesciunt facere in delectus tempore corrupti numquam fugit reiciendis molestiae architecto asperiores. 
-        Perspiciatis magnam quidem rem dicta nemo.</p>
+<!-- descripcion personal-->
+<section id="about">
+  <div class="about">
+    <h2 class="titulos about">Acerca de mí</h2>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item item1">
+      <div class="container-fluid">
+        <img src="../../../assets/images/perfilimg.jpg" alt="foto de perfil" id="foto-perfil">
+
+        <button class="boton-edicion-img" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar imagen">
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+      </div>
+
     </div>
-    
-<!-- Modal para edicion -->
-    <div class="modal" tabindex="-1" [ngStyle]="{'display':displayStyle}">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Descripción personal</h4>
-            </div>
-            <div class="modal-body">
-                <label for="descripcionPersonal" class="form-label"></label>
-                <textarea class="form-control" id="descripcionPersonal" rows="3">{{persona.aboutMe}}</textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-footer fa-white" (click)="guardarCambios()">Guardar cambios</button>
-                <button (click)="closeForm()" type="button" id="cerrarModalEncabezado" class="btn btn-footer fa-white" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
+    <div class="grid-item item2">
+      <p>{{persona.aboutMe}}</p>
+      <button (click)="openForm()" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar descripción" >
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+    </div>
+    <div class="grid-item item3">
+      <h2>{{persona.fullName}}</h2>
+      <br />
+      <h4>{{persona.position}}</h4>
+      <button class="boton-edicion-img" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar datos" id="edidescrip">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+    </div>
+    <div class="grid-item"></div>
+  </div>
+
+
+
+
+  <!-- Modal para edicion -->
+  <div class="modal" tabindex="-1" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Descripción personal</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <label for="descripcionPersonal" class="form-label"></label>
+            <input type="text" name="descripcionPersonal" class="form-control" rows="3">{{persona.aboutMe}}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-footer fa-white" (click)="guardarCambios()">Guardar cambios</button>
+          <button (click)="closeForm()" type="button" id="cerrarModalEncabezado" class="btn btn-footer fa-white"
+            data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
+    </div>
+  </div>
 </section>

@@ -34,17 +34,7 @@
   .nombre-titulo{
     text-align: center;
   }
-  #foto-perfil{
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-    border: solid 3px rgba(178,133,199,1);
-    position: absolute;
-    margin-left: 5%;
-   
 
-  }
   /*acercar de mi*/ 
   .descripcion {
     font-family: Georgia, 'Times New Roman', Times, serif;

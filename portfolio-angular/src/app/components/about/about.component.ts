@@ -14,6 +14,8 @@ export class AboutComponent implements OnInit {
   faTrash = faTrash
   persona: any;
   form!:FormGroup;
+  
+
 
   constructor(private datosPortfolio: PortfolioService) {}
 
@@ -23,6 +25,8 @@ export class AboutComponent implements OnInit {
     });
   }
 
+  
+  
   displayStyle = "none";
   
   openForm() {
@@ -31,10 +35,13 @@ export class AboutComponent implements OnInit {
   closeForm() {
     this.displayStyle = "none";
   }
+
   guardarCambios(){
     if(this.form.valid)
     {
       this.form.reset();
+
+      this.persona.aboutMe='trodnrejewl'
       document.getElementById("cerrarModalEncabezado")?.click();
     }
   }

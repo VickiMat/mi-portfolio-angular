@@ -1,26 +1,62 @@
-.flex-about{
-  display: flex;
-  align-items: auto;
-  justify-content: space-between;
-}
 
-
-.fa-white{
-  color:white;
-  background-color: none;
-}
 
 button{
   background-color: transparent;
   border-color: darkmagenta;
   border-radius: 10px;
-  
+  height: 50px;
+  width: 50px;
+  font-size: 25px;
 }
 
+p{
+  font-size: 20px;
+}
 button:hover{
   border-color: white;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  justify-content: center;
+
+}
+
+.item2 {
+  display: flex;
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  justify-content: space-evenly;
+}
+
+.item1{
+  justify-content: center;
+}
+img{
+  max-width: 200px;
+  max-height: 200px;
+}
+#foto-perfil{
+  border-radius: 50%;
+  overflow: hidden;
+  height: auto;
+  border: solid 3px rgba(178,133,199,1);
+  position: relative;
+  width: 200px; 
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: center;
+}
+
+.item3{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
 .modal-header{
   background-color: rgba(178,133,199,1);

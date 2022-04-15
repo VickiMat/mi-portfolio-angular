@@ -8,7 +8,8 @@
 			"start": "mar 2019",
 			"end": "actualidad",
 			"timeElapsed": "2 años y 6 meses",
-			"Place": "Buenos Aires, Argentina"
+			"Place": "Buenos Aires, Argentina",
+			"description": "Uso de Java con SpringBoot"
 		},
 		{
 			"position": "Backend Developer",
@@ -18,7 +19,8 @@
 			"start": "mar 2019",
 			"end": "actualidad",
 			"timeElapsed": "2 años y 6 meses",
-			"Place": "1200 Park Ave emeryville, ca, USA"
+			"Place": "1200 Park Ave emeryville, ca, USA",
+			"Description": "Uso de Java con SpringBoot"
 		},
 		{
 			"position": "Backend Developer",
@@ -28,7 +30,8 @@
 			"start": "mar 2019",
 			"end": "actualidad",
 			"timeElapsed": "2 años y 6 meses",
-			"Place": "1200 Park Ave emeryville, ca, USA"
+			"Place": "1200 Park Ave emeryville, ca, USA",
+			"Description": "Uso de Java con SpringBoot"
 		}
 	]
 }

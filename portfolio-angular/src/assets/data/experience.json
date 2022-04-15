@@ -32,6 +32,17 @@
 			"timeElapsed": "2 años y 6 meses",
 			"Place": "1200 Park Ave emeryville, ca, USA",
 			"Description": "Uso de Java con SpringBoot"
+		},
+		{
+			"position": "Backend Developer",
+			"company": "Mercado Libre",
+			"img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
+			"mode": "Jornada parcial",
+			"start": "mar 2019",
+			"end": "actualidad",
+			"timeElapsed": "2 años y 6 meses",
+			"Place": "1200 Park Ave emeryville, ca, USA",
+			"Description": "Uso de Java con SpringBoot"
 		}
 	]
 }

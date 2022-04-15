@@ -9,11 +9,14 @@ button{
   font-size: 25px;
 }
 
+
+
 p{
   font-size: 20px;
 }
 button:hover{
   border-color: white;
+  font-size: 30px;
 }
 
 .grid-container {
@@ -58,6 +61,10 @@ img{
   justify-content: space-evenly;
 }
 
+
+h4{
+  margin:5px;
+}
 .modal-header{
   background-color: rgba(178,133,199,1);
   color:white;

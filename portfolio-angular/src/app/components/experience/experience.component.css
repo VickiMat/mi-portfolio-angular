@@ -1,3 +1,27 @@
-.container-fluid{
-    align-items: center;
+
+
+.border{
+    border:2px solid;
+    border-color:darkmagenta;
+    border-radius: 10px;
 }
+
+button{
+    background-color: transparent;
+    border-color: darkmagenta;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+  }
+
+  button:hover{
+    border-color: white;
+    font-size: 30px;
+  }
+
+  .añadir{
+      display: flex;
+      justify-content: center;
+      margin: 15px;
+  }

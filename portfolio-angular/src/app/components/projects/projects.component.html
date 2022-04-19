@@ -1,57 +1,31 @@
 <section>
     <h2 class="titulos">Proyectos</h2>
-    <div class="row align-items-center">
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="container-fluid">
+        <div *ngFor="let item of proyecto" class="row">
+            <div class="col-3 col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{item.imagen}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.nombre}}</h5>
+                        <p class="card-text">{{item.descripcion}}</p>
+                        <a href="{{item.url}}" class="btn btn-primary">Go somewhere</a>
+                        <div class="editar">
+                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar proyecto">
+                                <fa-icon [icon]="faedit"></fa-icon>
+                            </button>
+                            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar proyecto">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="col-sm-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="container-fluid añadir">
+        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Agregar proyecto">
+            <fa-icon [icon]="faplus"></fa-icon>
+        </button>
     </div>
 </section>

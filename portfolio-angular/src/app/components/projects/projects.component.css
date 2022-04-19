@@ -1,0 +1,30 @@
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button{
+    background-color: transparent;
+    border-color: darkmagenta;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+  }
+
+  button:hover{
+    border-color: white;
+    font-size: 30px;
+  }
+
+  .añadir{
+      display: flex;
+      justify-content: center;
+      margin: 15px;
+  }
+
+  .editar{
+      display: flex;
+      justify-content: flex-end;
+  }

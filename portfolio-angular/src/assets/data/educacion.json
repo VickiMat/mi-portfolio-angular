@@ -1,0 +1,44 @@
+{
+    "educacion": [
+        {
+            "nombre_titulo": "#Sé Programar",
+            "descripcion": "",
+            "periodo": "2021",
+            "logo": ".LOGO",
+            "instituto": "Argentina Programa",
+            "certificado": ""
+        },
+        {
+            "nombre_titulo": "Introducción a los algoritmos y la programación",
+            "descripcion": "",
+            "periodo": "2022",
+            "logo": "https://lh3.googleusercontent.com/-ETsOtKdne9Pg1pOdE1UVe9clZ5_h73J4MAjVcYFGoCaGniOHHqfzz1eRu2jU9twLYS_HFA=s170",
+            "instituto": "Todo Code",
+            "certificado": ""
+        },
+        {
+            "nombre_titulo": "Introducción a las Bases de Datos Relacionales (Con MySQL)",
+            "descripcion": "",
+            "periodo": "2022",
+            "logo": "https://lh3.googleusercontent.com/-ETsOtKdne9Pg1pOdE1UVe9clZ5_h73J4MAjVcYFGoCaGniOHHqfzz1eRu2jU9twLYS_HFA=s170",
+            "instituto": "Todo Code",
+            "certificado": ""
+        },
+        {
+            "nombre_titulo": "#Yo Programo",
+            "descripcion": "",
+            "periodo": "En curso",
+            "logo": ".LOGO",
+            "instituto": "Argentina Programa",
+            "certificado": ""
+        },
+        {
+            "nombre_titulo": "Full Stack - Python",
+            "descripcion": "",
+            "periodo": "En curso",
+            "logo": ".LOGO",
+            "instituto": "Codo a codo 4.0",
+            "certificado": ""
+        }
+    ]
+}

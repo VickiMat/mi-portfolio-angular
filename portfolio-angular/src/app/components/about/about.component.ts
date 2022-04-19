@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 })
 export class AboutComponent implements OnInit {
   faEdit = faEdit;
-  faTrash = faTrash
+  faTrash = faTrash;
   persona: any;
   form!:FormGroup;
   

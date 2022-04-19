@@ -1,0 +1,28 @@
+{
+    "habilidad": [
+        {
+            "nombre": "HTML",
+            "porcentaje": "90"
+        },
+        {
+            "nombre": "CSS",
+            "porcentaje": "70"
+        },
+        {
+            "nombre": "JavaScript",
+            "porcentaje": "40"
+        },
+        {
+            "nombre": "Java",
+            "porcentaje": "30"
+        },
+        {
+            "nombre": "Angular",
+            "porcentaje": "90"
+        },
+        {
+            "nombre": "Comunicación",
+            "porcentaje": "75"
+        }
+    ]
+}

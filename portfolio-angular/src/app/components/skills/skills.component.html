@@ -1,7 +1,30 @@
 <section>
-    <h2 class="titulos">Habilidades</h2>
-    HTML
-    <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+  <h2 class="titulos">Habilidades</h2>
+
+  <div class="container-fluid">
+    <div *ngFor="let item of skill" class="row">
+      <div class="col-4">
+        <circle-progress [percent]="item.porcentaje" [maxPercent]="100" [radius]="75" [title]="item.nombre" [showUnits]="false"
+          [outerStrokeWidth]="10" [innerStrokeWidth]="10" [space]="-10" [outerStrokeColor]="'#b285c7'"
+          [outerStrokeGradientStopColor]="'#becbe9'" [innerStrokeColor]="'#e7e8ea
+        '" [animation]="true" [animationDuration]="600" [clockwise]="false" [outerStrokeGradient]="true">
+        </circle-progress>
+        <div class="col-2">
+        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar">
+          <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+      <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+          <fa-icon [icon]="faTrash"></fa-icon>
+      </button>
+    </div>
       </div>
+    </div>
+    <div class="añadir">
+      <button data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir skill">
+          <fa-icon [icon]="faAdd"></fa-icon>
+      </button>
+  </div>
+  </div>
+
+{{skill.nombre}} <h2>{{skill.porcentaje}}</h2>
 </section>

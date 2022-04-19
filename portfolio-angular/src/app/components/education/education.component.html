@@ -1,11 +1,31 @@
 <section>
     <h2 class="titulos">Educación</h2>
-    <ul>Educacion formal
-        <li>Escuela blabla</li>
-        <li>Universidad</li>
-    </ul>
-    <ul>Cursos 
-        <li>Curso 1</li>
-        <li>Curso 2</li>
-    </ul>
+    <div class="container-fluid">
+        <div class="row" *ngFor="let item of educacion">
+            <div class="col-3">
+              <img src="{{item.logo}}">
+            </div>
+            <div class="col-7">
+                <h2>{{item.nombre_titulo}}</h2><h3>{{item.instituto}}</h3>
+                <p>{{item.descripcion}}</p>
+                <p>Realizado en el año {{item.periodo}}</p>
+                <p>{{item.certificado}}</p> 
+            </div>
+            <div class="col-2">
+                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                </button>
+                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+            </div>
+        </div>
+        <div class="añadir">
+            <button data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir educación">
+                <fa-icon [icon]="faAdd"></fa-icon>
+            </button>
+        </div>
+
+
+    </div>
 </section>

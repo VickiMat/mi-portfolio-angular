@@ -1,0 +1,29 @@
+.container-fluid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+button{
+    background-color: transparent;
+    border-color: darkmagenta;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+  }
+
+  button:hover{
+    border-color: white;
+    font-size: 30px;
+  }
+
+  .añadir{
+      display: flex;
+      justify-content: center;
+      margin: 15px;
+  }
+
+  .col-2{
+      display: flex;
+  }

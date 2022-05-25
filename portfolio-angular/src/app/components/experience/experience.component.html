@@ -4,16 +4,16 @@
     <div class="container-fluid">
         <div *ngFor="let item of experiencia" class="row" ngClass="border">
             <div class="col-2">
-                <img [src]="item.img" class="img-fluid" alt="">
+                <img [src]="item.url_img" class="img-fluid" alt="">
             </div>
             <div class="col-4">
-                <h2>{{item.position}}</h2>
-                <p>{{item.company}} - {{item.mode}}</p>
-                <p>{{item.start}} - {{item.end}}</p>
+                <h2>{{item.posicion}}</h2>
+                <p>{{item.compania}} - {{item.modo}}</p>
+                <p>{{item.inicio}} - {{item.fin}}</p>
             </div>
             <div class="col-4">
                 <h2>Tecnologías usadas</h2>
-                <p>{{item.description}}</p>
+                <p>{{item.descripcion}}</p>
             </div>
             <div class="col-2">
                 <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar experiencia">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
   selector: 'app-experience',
@@ -15,11 +16,11 @@ export class ExperienceComponent implements OnInit {
   faAdd = faPlus;
   faTrash = faTrash;
 
-  constructor(private miServicio: PortfolioService) { }
+  constructor(private experienciaService: ExperienciaService) { }
 
   ngOnInit(): void {
-    this.miServicio.obtenerDatosExperiencia().subscribe(data => {
-      this.experiencia = data["experience"];
+    this.experienciaService.getExperiencia().subscribe(data => {
+      this.experiencia = data;
     })
   }
 

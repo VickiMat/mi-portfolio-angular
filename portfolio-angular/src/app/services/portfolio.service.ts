@@ -25,8 +25,13 @@ export class PortfolioService {
     return this.http.get('./assets/data/skills.json');
   }
 
+
   obtenerDatosEducacion():Observable<any>{
     return this.http.get('./assets/data/educacion.json');
   }
 
+ /* guardarNuevaEducacion(educacion:Educacion): Observable<any> {
+    return this.http.post<any>(config.baseUrl + "eduacion/create", educacion)
+  }
+*/
 }

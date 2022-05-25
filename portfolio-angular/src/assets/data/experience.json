@@ -1,48 +1,44 @@
 {
 	"experience": [
 		{
-			"position": "Backend Developer",
-			"company": "CONICET",
-			"img": "https://es.wikipedia.org/wiki/Consejo_Nacional_de_Investigaciones_Cient%C3%ADficas_y_T%C3%A9cnicas_(Argentina)#/media/Archivo:Conicet_Logo_con_letras.png",
-			"mode": "Free Lance",
-			"start": "mar 2019",
-			"end": "actualidad",
-			"timeElapsed": "2 años y 6 meses",
-			"Place": "Buenos Aires, Argentina",
-			"description": "Uso de Java con SpringBoot"
+			"posicion": "Backend Developer",
+			"compañia": "CONICET",
+			"url_img": "https://es.wikipedia.org/wiki/Consejo_Nacional_de_Investigaciones_Cient%C3%ADficas_y_T%C3%A9cnicas_(Argentina)#/media/Archivo:Conicet_Logo_con_letras.png",
+			"modo": "Free Lance",
+			"inicio": "mar 2019",
+			"fin": "actualidad",
+			"lugar": "Buenos Aires, Argentina",
+			"descripcion": "Uso de Java con SpringBoot"
 		},
 		{
-			"position": "Backend Developer",
-			"company": "Pixar",
-			"img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
-			"mode": "Jornada parcial",
-			"start": "mar 2019",
-			"end": "actualidad",
-			"timeElapsed": "2 años y 6 meses",
-			"Place": "1200 Park Ave emeryville, ca, USA",
-			"Description": "Uso de Java con SpringBoot"
+			"posicion": "Backend Developer",
+			"compañia": "Pixar",
+			"url_img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
+			"modo": "Jornada parcial",
+			"inicio": "mar 2019",
+			"fin": "actualidad",
+			"lugar": "1200 Park Ave emeryville, ca, USA",
+			"descripcion": "Uso de Java con SpringBoot"
 		},
 		{
-			"position": "Backend Developer",
-			"company": "Mercado Libre",
-			"img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
-			"mode": "Jornada parcial",
-			"start": "mar 2019",
-			"end": "actualidad",
-			"timeElapsed": "2 años y 6 meses",
-			"Place": "1200 Park Ave emeryville, ca, USA",
-			"Description": "Uso de Java con SpringBoot"
+			"posicion": "Backend Developer",
+			"compañia": "Mercado Libre",
+			"url_img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
+			"modo": "Jornada parcial",
+			"inicio": "mar 2019",
+			"fin": "actualidad",
+			"lugar": "1200 Park Ave emeryville, ca, USA",
+			"descripcion": "Uso de Java con SpringBoot"
 		},
 		{
-			"position": "Backend Developer",
-			"company": "Mercado Libre",
-			"img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
-			"mode": "Jornada parcial",
-			"start": "mar 2019",
-			"end": "actualidad",
-			"timeElapsed": "2 años y 6 meses",
-			"Place": "1200 Park Ave emeryville, ca, USA",
-			"Description": "Uso de Java con SpringBoot"
+			"posicion": "Backend Developer",
+			"compañia": "Mercado Libre",
+			"url_img": "https://media-exp1.licdn.com/dms/image/C4E0BAQFhOoraRhsOSQ/company-logo_100_100/0/1590421269154?e=1637798400&v=beta&t=gyinTA0GPG1xIBDPj01L33mQHcdOdyMOdpoRHY640Pc",
+			"modo": "Jornada parcial",
+			"inicio": "mar 2019",
+			"fin": "actualidad",
+			"lugar": "1200 Park Ave emeryville, ca, USA",
+			"descripcion": "Uso de Java con SpringBoot"
 		}
 	]
 }

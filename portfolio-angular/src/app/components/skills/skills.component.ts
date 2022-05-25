@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { SkillService } from 'src/app/services/skill.service';
 
 
 @Component({
@@ -16,10 +17,10 @@ export class SkillsComponent implements OnInit {
   faAdd = faPlus;
   faTrash = faTrash;
 
-  constructor(private miServicio: PortfolioService) { }
+  constructor(private skillService: SkillService) { }
 
   ngOnInit(): void {
-    this.miServicio.obtenerDatosSkills().subscribe(data => { this.skill = data["habilidad"]; })
+    this.skillService.getSkill().subscribe(data => { this.skill = data; })
   }
 
 }

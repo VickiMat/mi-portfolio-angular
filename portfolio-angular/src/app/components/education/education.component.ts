@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { EducacionService } from 'src/app/services/educacion.service';
+import { Educacion } from 'src/app/model/educacion.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -17,6 +19,9 @@ export class EducationComponent implements OnInit {
   faAdd = faPlus;
   faTrash = faTrash;
   educationForm: FormGroup;
+  public editEducation:Educacion | undefined;
+  public deleteEducation:Educacion | undefined;
+  public educations:Educacion[]=[];
 
   constructor(private educacionService: EducacionService,
     private formBuilder: FormBuilder) {
@@ -33,8 +38,20 @@ export class EducationComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    this.getEducations
     this.educacionService.getEducation().subscribe(data => {
-      this.educacion = data;
+      this.educations = data;
+    })
+  }
+//traer educaciones
+  public getEducations():void{
+    this.educacionService.getEducation().subscribe({
+      next:(Response:Educacion[]) => {
+        this.educations=Response;
+      },
+      error:(error:HttpErrorResponse) =>{
+        alert(error.message);
+      }
     })
   }
 
@@ -58,8 +75,62 @@ export class EducationComponent implements OnInit {
     );
   } */
 
-  onNewEducation(){
-    this.clearForm();
+  public onOpenModal(mode:String, educacion?: Educacion):void{
+    const container=document.getElementById('main-container');
+    const button=document.createElement('button');
+    button.style.display='none';
+    button.setAttribute('data-toggle', 'modal');
+    if(mode==='add'){
+      button.setAttribute('data-target','#addEducationModal');
+    }else if(mode==='delete'){
+      this.deleteEducation=educacion;
+      button.setAttribute('data-target','#deleteEducationModal');
+    }else if(mode==='edit'){
+      this.editEducation=educacion;
+      button.setAttribute('data-target','#editEducationModal');
+    }
+    container?.appendChild(button);
+    button.click();
   }
 
+  public onAddEducation(addForm:NgForm){
+    document.getElementById('add-education-form')?.click();
+    this.educacionService.addEducation(addForm.value).subscribe({
+      next:(response:Educacion) => {
+        console.log(response);
+        this.getEducations();
+        addForm.reset();
+      },
+      error:(error:HttpErrorResponse)=>{
+        alert(error.message);
+        addForm.reset();
+      }
+    })
+  }
+
+  public onUpdateEducation(educacion:Educacion){
+    this.editEducation=educacion;
+    document.getElementById('add-education-form')?.click();
+    this.educacionService.updateEducation(educacion).subscribe({
+      next:(response:Educacion) => {
+        console.log(response);
+        this.getEducations();
+      },
+      error:(error:HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    })
+  }
+
+  public onDeleteEducation(idEdu:number):void{
+    this.educacionService.deleteEducation(idEdu).subscribe({
+      next:(response:void) => {
+        console.log(response);
+        this.getEducations();
+      },
+      error:(error:HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    })
+  }
 }

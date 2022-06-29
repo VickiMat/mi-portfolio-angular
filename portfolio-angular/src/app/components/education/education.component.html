@@ -1,43 +1,365 @@
 <section>
-    <h2 class="titulos">Educación</h2>
-    <div class="container-fluid">
-        <div class="row" *ngFor="let item of educacion">
-            <div class="col-3">
-              <img [src]="item.logo">
-            </div>
-            <div class="col-7">
-                <h2>{{item.nombre_titulo}}</h2><h3>{{item.instituto}}</h3>
-                <p>{{item.descripcion}}</p>
-                <p>Fecha comienzo: {{item.inicio}}</p>
-                <p>Fecha fin: {{item.fin}}</p>
-                <p>{{item.certificado}}</p>
-            </div>
-            <div class="col-2">
-                <button data-bs-toggle="modal" data-bs-target="#educationForm" data-bs-placement="top" title="Modificar">
-                    <fa-icon [icon]="faEdit"></fa-icon>
-                </button>
-                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
-                    <fa-icon [icon]="faTrash"></fa-icon>
-                </button>
-            </div>
+  <h2 class="titulos">Educación</h2>
+  <div class="container-fluid">
+    <div class="row" *ngFor="let pepito of educations">
+      <div class="col-3">
+        <img [src]="pepito.logo" />
+      </div>
+      <div class="col-7">
+        <h2>{{ pepito.nombre_titulo }}</h2>
+        <h3>{{ pepito.instituto }}</h3>
+        <p>{{ pepito.descripcion }}</p>
+        <p>Fecha comienzo: {{ pepito.inicio }}</p>
+        <p>Fecha fin: {{ pepito.fin }}</p>
+        <p>{{ pepito.certificado }}</p>
+      </div>
+      <div class="col-2">
+        <button
+          (click)="onOpenModal('edit', pepito)"
+          data-bs-toggle="modal"
+          data-bs-target="#editEducationModal"
+          data-bs-placement="top"
+          title="Modificar"
+        >
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          (click)="onOpenModal('delete', pepito)"
+          data-bs-toggle="modal"
+          data-bs-target="#deleteEducationModal"
+          data-bs-placement="top"
+          title="Eliminar"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="añadir">
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#addEducationModal"
+        (click)="onOpenModal('add')"
+        data-bs-placement="top"
+        title="Añadir educación"
+      >
+        <fa-icon [icon]="faAdd"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <!--MODAL AÑADIR-->
+  <div
+    class="modal fade"
+    id="addEducationModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addEducationModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEducationModalLabel">
+            Añadir educación
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="añadir">
-            <button data-bs-toggle="modal" data-bs-target="#educationForm" (click)="onNewEducation()" data-bs-placement="top" title="Añadir educación">
-                <fa-icon [icon]="faAdd"></fa-icon>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
+            <div class="form-group">
+              <label for="nombre_titulo">Titulo</label>
+              <input
+                type="text"
+                ngModel
+                name="nombre_titulo"
+                class="form-control"
+                id="nombre_titulo"
+                placeholder="Titulo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input
+                type="text"
+                ngModel
+                name="descripcion"
+                class="form-control"
+                id="descripcion"
+                placeholder="Descripción"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="logo">Logo</label>
+              <input
+                type="text"
+                ngModel
+                name="logo"
+                class="form-control"
+                id="logo"
+                placeholder="Logo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="instituto">Instituto</label>
+              <input
+                type="text"
+                ngModel
+                name="instituto"
+                class="form-control"
+                id="instituto"
+                placeholder="Instituto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="certificado">Certificado</label>
+              <input
+                type="text"
+                ngModel
+                name="certificado"
+                class="form-control"
+                id="certificado"
+                placeholder="Certificado"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="inicio">Fecha de inicio</label>
+              <input
+                type="text"
+                ngModel
+                name="inicio"
+                class="form-control"
+                id="inicio"
+                placeholder="Fecha de inicio"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fin">Fecha de finalización</label>
+              <input
+                type="text"
+                ngModel
+                name="fin"
+                class="form-control"
+                id="fin"
+                placeholder="Fecha de fin"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="add-education-form"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                [disabled]="addForm.invalid"
+                class="btn btn-primary"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR-->
+  <div
+    class="modal fade"
+    id="editEducationModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editEducationModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateEducationModalLabel">
+            Editar educación {{editEducation?.nombre_titulo}}
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="name">Titulo</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.nombre_titulo }}"
+                name="nombre_titulo"
+                class="form-control"
+                id="nombre_titulo"
+                placeholder="Titulo"
+                required
+              />
+            </div>
+            <input
+              type="hidden"
+              ngModel="{{ editEducation?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.descripcion }}"
+                name="descripcion"
+                class="form-control"
+                id="descripcion"
+                placeholder="Descripción"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="logo">Logo</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.logo }}"
+                name="logo"
+                class="form-control"
+                id="logo"
+                placeholder="Logo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="instituto">Instituto</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.instituto }}"
+                name="instituto"
+                class="form-control"
+                id="instituto"
+                placeholder="Instituto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="certificado">Certificado</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.certificado }}"
+                name="certificado"
+                class="form-control"
+                id="certificado"
+                placeholder="Certificado"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="inicio">Fecha de inicio</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.inicio }}"
+                name="inicio"
+                class="form-control"
+                id="inicio"
+                placeholder="Fecha de inicio"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fin">Fecha de finalización</label>
+              <input
+                type="text"
+                ngModel="{{ editEducation?.fin }}"
+                name="fin"
+                class="form-control"
+                id="fin"
+                placeholder="Fecha de fin"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id=""
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                (click)="onUpdateEducation(editForm.value)"
+                class="btn btn-primary"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal DELETE -->
+  <div
+    class="modal fade"
+    id="deleteEducationModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteEducationModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteEducationModalLabel">Eliminar educación</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            ¿Estás seguro que deseas eliminar esta educación?
+            {{ deleteEducation?.nombre_titulo }}
+          </p>
+        </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              No
             </button>
+            <button
+              (click)="onDeleteEducation(deleteEducation!.id)"
+              class="btn btn-danger"
+              data-bs-dismiss="modal">
+              Si
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
-    <!--MODAL-->
-    <div class="modal fade" id="educationForm" tabindex="-1" aria-labelledby="educationFormLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="educationFormLabel">Educación</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form [formGroup]="educationForm" >
+  <!--
               <input type="hidden" name="id" formControlName="id">
 
               <div class="row mb-3">
@@ -48,9 +370,16 @@
               </div>
 
               <div class="row mb-3">
-                <label for="año" class="col-sm-2 col-form-label">Año</label>
+                <label for="inicio" class="col-sm-2 col-form-label">Fecha inicio</label>
                 <div class="col-sm-10">
-                  <input type="text" name="año" formControlName="año" class="form-control" required>
+                  <input type="text" name="inicio" formControlName="inicio" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="fin" class="col-sm-2 col-form-label">Fecha fin</label>
+                <div class="col-sm-10">
+                  <input type="text" name="fin" formControlName="fin" class="form-control" required>
                 </div>
               </div>
 
@@ -69,6 +398,13 @@
               </div>
 
               <div class="row mb-3">
+                <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-10">
+                  <input type="text" name="descripcion" formControlName="descripcion" class="form-control" required="true">
+                </div>
+              </div>
+
+              <div class="row mb-3">
                 <label for="certificado" class="col-sm-2 col-form-label">Certificado</label>
                 <div class="col-sm-10">
                   <input type="text" name="certificado" formControlName="certificado" class="form-control" required="true">
@@ -79,10 +415,5 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Guardar cambios</button>
               </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
+            -->
 </section>

@@ -17,9 +17,12 @@
       <p>{{persona.descripcion}}</p>
       <button data-bs-toggle="tooltip" data-bs-placement="top"
             title="Modificar descripción" (click)="editAboutMe()"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button>
-
-    <!-- <textarea rows="5" cols="150" [(ngModel)]="descripcion"></textarea> -->
-    <button (click)="guardarAboutMe()">Guardar</button>
+    <div *ngIf="modoEdicionDescripcion">
+      <textarea rows="5" cols="80" [(ngModel)]="descripcion"></textarea>
+      <br>
+      <button class="btn-guardar" (click)="guardarAboutMe()">Guardar</button>
+      <button class="btn-guardar" (click)="cerrarAboutMe()">Cancelar</button>
+    </div>
     </div>
 
     <div class="grid-item item3">

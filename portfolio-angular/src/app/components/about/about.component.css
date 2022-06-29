@@ -19,6 +19,14 @@ button:hover{
   font-size: 30px;
 }
 
+.btn-guardar {
+  background-color: transparent;
+  border-color: darkmagenta;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  font-size: 25px;
+}
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr;

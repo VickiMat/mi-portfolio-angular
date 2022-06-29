@@ -15,10 +15,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AboutComponent implements OnInit {
   faEdit = faEdit;
   faTrash = faTrash;
-   persona! : Persona;
+  persona : Persona = new Persona();
   form!:FormGroup;
   public editPersona: Persona | undefined;
   descripcion! : String;
+  modoEdicionDescripcion = false;
 
 
 
@@ -41,12 +42,15 @@ export class AboutComponent implements OnInit {
   }
 
   editAboutMe(){
-
+    this.modoEdicionDescripcion=true;
   }
 
   guardarAboutMe(){
     this.persona.descripcion = this.descripcion;
-
+    this.modoEdicionDescripcion=false;
+  }
+  cerrarAboutMe(){
+    this.modoEdicionDescripcion=false;
   }
   displayStyle = "none";
 

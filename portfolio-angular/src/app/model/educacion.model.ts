@@ -1,5 +1,5 @@
 export class Educacion{
-    id?: number;
+    id: number;
     nombre_titulo: String;
     descripcion: String;
     logo: String;

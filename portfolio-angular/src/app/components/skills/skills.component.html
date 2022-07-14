@@ -10,21 +10,213 @@
         '" [animation]="true" [animationDuration]="600" [clockwise]="false" [outerStrokeGradient]="true">
         </circle-progress>
         <div class="col-2">
-        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar">
+        <button (click)="onOpenModal('edit', item)"
+        data-bs-toggle="modal"
+        data-bs-target="#editSkillModal"
+        data-bs-placement="top"
+        title="Modificar skilll">
           <fa-icon [icon]="faEdit"></fa-icon>
       </button>
-      <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+      <button (click)="onOpenModal('delete',item)"
+      data-bs-toggle="modal"
+      data-bs-target="#deleteSkillModal"
+      data-bs-placement="top"
+      title="Eliminar skill">
           <fa-icon [icon]="faTrash"></fa-icon>
       </button>
     </div>
       </div>
     </div>
     <div class="añadir">
-      <button data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir skill">
+      <button
+        (click)="onOpenModal('add')"
+        data-bs-target="#addSkillModal"
+        data-bs-toggle="modal"
+        data-bs-placement="top"
+        title="Añadir skill">
           <fa-icon [icon]="faAdd"></fa-icon>
       </button>
   </div>
   </div>
 
 {{skill?.nombre}} <h2>{{skill?.porcentaje}}</h2>
+
+<!--MODAL PARA AÑADIR NUEVOS PROYECTOS-->
+<div
+    class="modal fade"
+    id="addSkillModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addSkillModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSkillModalLabel">
+            Añadir skill</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddSkill(addForm)">
+            <div class="form-group">
+              <label for="nombre">Nombre de la habilidad</label>
+              <input
+                type="text"
+                ngModel
+                name="nombre"
+                class="form-control"
+                id="nombre"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="porcentaje">Porcentaje</label>
+              <input
+                type="text"
+                ngModel
+                name="porcentaje"
+                class="form-control"
+                id="porcentaje"
+                placeholder="Porcentaje"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                [disabled]="addForm.invalid"
+                class="btn btn-guardar">
+                Guardar cambios
+              </button>
+              <button
+                type="button"
+                id="add-skill-form"
+                class="btn btn-guardar"
+                data-bs-dismiss="modal">
+                Cerrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<!--FIN DEL MODAL AÑADIR-->
+<!--MODAL PARA EDITAR PROYECTOS EXISTENTES-->
+<div
+    class="modal fade"
+    id="editSkillModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editSkillModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editSkillModalLabel">
+            Editar habilidad {{updateSkill?.nombre}}
+          </h5>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm" (ngSubmit)="onUpdateSkill(editForm)">
+            <div class="form-group">
+              <input
+              type="hidden"
+              ngModel="{{ updateSkill?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""/>
+              <label for="nombre">Nombre de la habilidad</label>
+              <input
+                type="text"
+                ngModel="{{ updateSkill?.nombre }}"
+                name="nombre"
+                class="form-control"
+                id="nombre"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="porcentaje">Porcentaje</label>
+              <input
+                type="text"
+                ngModel="{{ updateSkill?.porcentaje }}"
+                name="porcentaje"
+                class="form-control"
+                id="porcentaje"
+                placeholder="porcentaje"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                id="edit-skill-form"
+                class="btn"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="submit"
+                class="btn"
+              >
+                Guardar cambios
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<!--FIN MODAL EDICIÓN-->
+<!--MODAL PARA ELIMINAR-->
+<div
+    class="modal fade"
+    id="deleteSkillModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteSkillModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteSkillModalLabel">Eliminar habilidad</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            ¿Estás seguro que deseas eliminar esta habilidad?
+            {{ deleteSkill?.nombre }}
+          </p>
+        </div>
+          <div class="modal-footer">
+            <button
+              (click)="onDeleteSkill(deleteSkill!.id)"
+              class="btn"
+              data-bs-dismiss="modal">
+              Si
+            </button>
+            <button
+              type="button"
+              class="btn"
+              data-bs-dismiss="modal">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+</div>
+<!--FIN MODAL ELIMINAR-->
+
 </section>

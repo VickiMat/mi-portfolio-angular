@@ -13,8 +13,9 @@ export class SkillService {
   constructor(private http: HttpClient) {
 
    }
-   public getSkill():Observable<Skill>{
-    return this.http.get<Skill>(`${this.apiServerUrl}/skill/mostrar`);
+
+  public getSkill():Observable<Skill[]>{
+    return this.http.get<Skill[]>(`${this.apiServerUrl}/skill/mostrar`);
   }
 
   public addSkill(skill:Skill):Observable<Skill>{

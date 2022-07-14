@@ -13,8 +13,8 @@ export class ExperienciaService {
   constructor(private http:HttpClient) {
   }
 
-  public getExperiencia():Observable<Experiencia>{
-    return this.http.get<Experiencia>(`${this.apiServerUrl}/experiencia/mostrar`);
+  public getExperiencia():Observable<Experiencia[]>{
+    return this.http.get<Experiencia[]>(`${this.apiServerUrl}/experiencia/mostrar`);
   }
 
   public addExperiencia(experiencia:Experiencia):Observable<Experiencia>{

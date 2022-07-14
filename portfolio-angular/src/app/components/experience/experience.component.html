@@ -7,8 +7,8 @@
                 <img [src]="item.url_img" class="img-fluid" alt="">
             </div>
             <div class="col-4">
-                <h2>{{item.posicion}}</h2>
-                <p>{{item.compania}} - {{item.modo}}</p>
+                <h2>Posición {{item.posicion}}</h2>
+                <p>Empresa:{{item.compania}} - Estilo de trabajo: {{item.modo}}</p>
                 <p>{{item.inicio}} - {{item.fin}}</p>
             </div>
             <div class="col-4">
@@ -16,18 +16,342 @@
                 <p>{{item.descripcion}}</p>
             </div>
             <div class="col-2">
-                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar experiencia">
+                <button (click)="onOpenModal('edit', item)"
+                data-bs-toggle="modal"
+                data-bs-target="#editExperienciaModal"
+                data-bs-placement="top"
+                title="Modificar experiencia">
                     <fa-icon [icon]="faEdit"></fa-icon>
                 </button>
-                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar experiencia">
+                <button (click)="onOpenModal('delete',item)"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteExperienciaModal"
+                data-bs-placement="top"
+                title="Eliminar experiencia">
                     <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
             </div>
         </div>
     </div>
     <div class="añadir">
-        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Añadir experiencia">
+        <button (click)="onOpenModal('add')"
+        data-bs-target="#addExperienciaModal"
+        data-bs-toggle="modal"
+        data-bs-placement="top"
+        title="Agregar experiencia">
             <fa-icon [icon]="faAdd"></fa-icon>
         </button>
     </div>
+
+<!--MODAL PARA AÑADIR NUEVOS PROYECTOS-->
+<div
+    class="modal fade"
+    id="addExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addExperienciaModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addExperienciaModalLabel">
+            Añadir experiencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
+            <div class="form-group">
+              <label for="posicion">Puesto/cargo</label>
+              <input
+                type="text"
+                ngModel
+                name="posicion"
+                class="form-control"
+                id="posicion"
+                placeholder="Puesto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="compania">Compañia</label>
+              <input
+                type="text"
+                ngModel
+                name="compania"
+                class="form-control"
+                id="compania"
+                placeholder="Compañia"
+              />
+            </div>
+            <div class="form-group">
+              <label for="url_img">Logo de la empresa</label>
+              <input
+                type="text"
+                ngModel
+                name="url_img"
+                class="form-control"
+                id="url_img"
+                placeholder="Url del logo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="modo">Modo de trabajo(freelance, jornada completa, etc)</label>
+              <input
+                type="text"
+                ngModel
+                name="modo"
+                class="form-control"
+                id="modo"
+                placeholder="Modo de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inicio">Fecha de inicio</label>
+              <input
+                type="text"
+                ngModel
+                name="inicio"
+                class="form-control"
+                id="inicio"
+                placeholder="Inicio del trabajo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fin">Fin del trabajo</label>
+              <input
+                type="text"
+                ngModel
+                name="fin"
+                class="form-control"
+                id="fin"
+                placeholder="fin de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lugar">Lugar de trabajo</label>
+              <input
+                type="text"
+                ngModel
+                name="lugar"
+                class="form-control"
+                id="lugar"
+                placeholder="Lugar de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input
+                type="text"
+                ngModel
+                name="descripcion"
+                class="form-control"
+                id="descripcion"
+                placeholder="Descripción"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                [disabled]="addForm.invalid"
+                class="btn btn-guardar">
+                Guardar cambios
+              </button>
+              <button
+                type="button"
+                id="add-experiencia-form"
+                class="btn btn-guardar"
+                data-bs-dismiss="modal">
+                Cerrar
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<!--FIN DEL MODAL AÑADIR-->
+<!--MODAL PARA EDITAR EXPERIENCIAS-->
+<div
+    class="modal fade"
+    id="editExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editExperienciaModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editExperienciaModalLabel">
+            Editar experiencia</h5>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm" (ngSubmit)="onUpdateExperiencia(editForm)">
+            <div class="form-group">
+              <input
+              type="hidden"
+              ngModel="{{ updateExperiencia?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""/>
+              <label for="posicion">Puesto/cargo</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.posicion }}"
+                name="posicion"
+                class="form-control"
+                id="posicion"
+                placeholder="Puesto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="compania">Compañia</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.compania }}"
+                name="compania"
+                class="form-control"
+                id="compania"
+                placeholder="Compañia"
+              />
+            </div>
+            <div class="form-group">
+              <label for="url_img">Logo de la empresa</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.url_img }}"
+                name="url_img"
+                class="form-control"
+                id="url_img"
+                placeholder="Url del logo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="modo">Modo de trabajo(freelance, jornada completa, etc)</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.modo }}"
+                name="modo"
+                class="form-control"
+                id="modo"
+                placeholder="Modo de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inicio">Fecha de inicio</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.inicio }}"
+                name="inicio"
+                class="form-control"
+                id="inicio"
+                placeholder="Inicio del trabajo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fin">Fin del trabajo</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.fin }}"
+                name="fin"
+                class="form-control"
+                id="fin"
+                placeholder="fin de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lugar">Lugar de trabajo</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.lugar }}"
+                name="lugar"
+                class="form-control"
+                id="lugar"
+                placeholder="Lugar de trabajo"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <input
+                type="text"
+                ngModel="{{ updateExperiencia?.descripcion}}"
+                name="descripcion"
+                class="form-control"
+                id="descripcion"
+                placeholder="Descripción"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn">
+                Guardar cambios
+              </button>
+              <button
+                type="button"
+                id="edit-experiencia-form"
+                class="btn"
+                data-bs-dismiss="modal">
+                Cerrar
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<!--FIN MODAL EDITAR-->
+<!--MODAL PARA ELIMINAR-->
+<div
+    class="modal fade"
+    id="deleteExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteExperienciaModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteExperienciaModalLabel">Eliminar experiencia laboral</h5>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            ¿Estás seguro que deseas eliminar esta experiencia?
+          </p>
+        </div>
+          <div class="modal-footer">
+            <button
+              (click)="onDeleteExperiencia(deleteExperiencia!.id)"
+              class="btn"
+              data-bs-dismiss="modal">
+              Si
+            </button>
+            <button
+              type="button"
+              class="btn"
+              data-bs-dismiss="modal">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+</div>
+<!--FIN MODAL ELIMINAR-->
+
 </section>

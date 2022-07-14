@@ -16,4 +16,16 @@ export class SkillService {
    public getSkill():Observable<Skill>{
     return this.http.get<Skill>(`${this.apiServerUrl}/skill/mostrar`);
   }
+
+  public addSkill(skill:Skill):Observable<Skill>{
+    return this.http.post<Skill>(`${this.apiServerUrl}/skill/crear`,skill);
+  }
+
+  public updateSkill(skill:Skill):Observable<Skill>{
+    return this.http.put<Skill>(`${this.apiServerUrl}/skill/editar`,skill);
+  }
+
+  public deleteSkill(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.apiServerUrl}/skill/eliminar/${id}`);
+  }
 }

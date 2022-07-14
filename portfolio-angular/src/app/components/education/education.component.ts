@@ -94,7 +94,6 @@ export class EducationComponent implements OnInit {
   }
 
   public onAddEducation(addForm:NgForm){
-    document.getElementById('add-education-form')?.click();
     this.educacionService.addEducation(addForm.value).subscribe({
       next:(response:Educacion) => {
         console.log(response);
@@ -106,12 +105,12 @@ export class EducationComponent implements OnInit {
         addForm.reset();
       }
     })
+    document.getElementById('add-education-form')?.click();
   }
 
-  public onUpdateEducation(educacion:Educacion){
-    this.editEducation=educacion;
-    document.getElementById('add-education-form')?.click();
-    this.educacionService.updateEducation(educacion).subscribe({
+  public onUpdateEducation(editForm:NgForm){
+    this.editEducation=editForm.value;
+    this.educacionService.updateEducation(this.editEducation as Educacion).subscribe({
       next:(response:Educacion) => {
         console.log(response);
         this.getEducations();
@@ -120,6 +119,7 @@ export class EducationComponent implements OnInit {
         alert(error.message);
       }
     })
+    document.getElementById('edit-education-form')?.click();
   }
 
   public onDeleteEducation(idEdu:number):void{

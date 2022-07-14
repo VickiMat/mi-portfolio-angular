@@ -159,7 +159,7 @@
               <button
                 type="button"
                 id="add-education-form"
-                class="btn btn-secondary"
+                class="btn btn-guardar"
                 data-bs-dismiss="modal"
               >
                 Cerrar
@@ -167,7 +167,7 @@
               <button
                 type="submit"
                 [disabled]="addForm.invalid"
-                class="btn btn-primary"
+                class="btn btn-guardar"
               >
                 Guardar cambios
               </button>
@@ -193,15 +193,9 @@
           <h5 class="modal-title" id="updateEducationModalLabel">
             Editar educación {{editEducation?.nombre_titulo}}
           </h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
         </div>
         <div class="modal-body">
-          <form #editForm="ngForm">
+          <form #editForm="ngForm" (ngSubmit)="onUpdateEducation(editForm)">
             <div class="form-group">
               <label for="name">Titulo</label>
               <input
@@ -296,15 +290,15 @@
             <div class="modal-footer">
               <button
                 type="button"
-                id=""
-                class="btn btn-secondary"
+                id="edit-education-form"
+                class="btn"
                 data-bs-dismiss="modal"
               >
                 Cerrar
               </button>
-              <button
-                (click)="onUpdateEducation(editForm.value)"
-                class="btn btn-primary"
+              <button type="submit"
+
+                class="btn"
               >
                 Guardar cambios
               </button>
@@ -343,17 +337,18 @@
         </div>
           <div class="modal-footer">
             <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal">
-              No
-            </button>
-            <button
               (click)="onDeleteEducation(deleteEducation!.id)"
-              class="btn btn-danger"
+              class="btn"
               data-bs-dismiss="modal">
               Si
             </button>
+            <button
+              type="button"
+              class="btn"
+              data-bs-dismiss="modal">
+              No
+            </button>
+
           </div>
         </div>
       </div>

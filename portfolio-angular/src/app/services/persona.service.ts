@@ -21,8 +21,12 @@ export class PersonaService {
     return this.http.get<Persona>(`${this.apiServerUrl}/personas/traer/perfil/1`);
   }
 
-  public updatePersona(persona:Persona):Observable<Persona>{
-    return this.http.put<Persona>(`${this.apiServerUrl}/personas/editar`,persona);
+  public updatePersonaDescripcion(persona:Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.apiServerUrl}/personas/editarDescripcion?id=1&descripcion=${persona.descripcion}`,persona);
+  }
+
+  public updatePersonaDatos(persona:Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.apiServerUrl}/personas/editarDatos?id=1&nombre=${persona.nombre}&apellido=${persona.apellido}&titulo=${persona.titulo}`,persona);
   }
 
   }

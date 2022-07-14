@@ -6,32 +6,87 @@
   <div class="grid-container">
     <div class="grid-item item1">
       <div class="container-fluid">
-        <img src="../../../assets/images/perfilimg.jpg" alt="foto de perfil" id="foto-perfil">
-        <button class="boton-edicion-img" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar imagen">
+        <img
+          src="../../../assets/images/perfilimg.jpg"
+          alt="foto de perfil"
+          id="foto-perfil"
+        />
+        <button
+          class="boton-edicion-img"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Modificar imagen"
+          *ngIf="botonEdicion"
+        >
           <fa-icon [icon]="faEdit"></fa-icon>
         </button>
+        <div *ngIf="modoEdicionFoto">
+          <h5>Seleccionar una foto</h5>
+          <input (change)="($event)" type="file">
+          <br />
+          <button class="btn-guardar">
+            Guardar
+          </button>
+          <button class="btn-guardar">
+            Cancelar
+          </button>
+        </div>
       </div>
-
     </div>
     <div class="grid-item item2">
-      <p>{{persona.descripcion}}</p>
-      <button data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Modificar descripción" (click)="editAboutMe()"><fa-icon [icon]="faEdit" class="fa-white"></fa-icon></button>
-    <div *ngIf="modoEdicionDescripcion">
-      <textarea rows="5" cols="80" [(ngModel)]="descripcion"></textarea>
-      <br>
-      <button class="btn-guardar" (click)="guardarAboutMe()">Guardar</button>
-      <button class="btn-guardar" (click)="cerrarAboutMe()">Cancelar</button>
-    </div>
+      <p>{{ persona.descripcion }}</p>
+      <button
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Modificar descripción"
+        (click)="editAboutMeDesc()"
+        *ngIf="botonEdicion"
+      >
+        <fa-icon [icon]="faEdit" class="fa-white"></fa-icon>
+      </button>
+      <div *ngIf="modoEdicionDescripcion">
+        <textarea rows="5" cols="80" [(ngModel)]="descripcion">{{
+          persona.descripcion
+        }}</textarea>
+        <br />
+        <button class="btn-guardar" (click)="guardarAboutMeDesc()">
+          Guardar
+        </button>
+        <button class="btn-guardar" (click)="cerrarAboutMeDesc()">
+          Cancelar
+        </button>
+      </div>
     </div>
 
     <div class="grid-item item3">
-      <h2>{{persona.nombre}} {{persona.apellido}}</h2>
-      <br />
-      <h4>{{persona.titulo}}</h4>
-      <button class="boton-edicion-img" data-bs-toggle="tooltip" data-bs-placement="top" title="Modificar datos" id="edidescrip">
+      <h2>{{ persona.nombre }} {{ persona.apellido }}</h2>
+      <br><br>
+      <h4>{{ persona.titulo }}</h4>
+      <button
+        class="boton-edicion-img"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Modificar datos"
+        (click)="editAboutMeDatos()"
+        id="edidescrip"
+        *ngIf="botonEdicion"
+      >
         <fa-icon [icon]="faEdit"></fa-icon>
       </button>
+      <div *ngIf="modoEdicionDatos">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value="nombe" [(ngModel)]="nombre" /><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" [(ngModel)]="apellido"/><br>
+        <label for="titulo">Titulo:</label>
+        <input type="text" name="titulo" [(ngModel)]="titulo" value={{persona.titulo}}/><br>
+        <button class="btn-guardar" (click)="guardarAboutMeDatos()">
+          Guardar
+        </button>
+        <button class="btn-guardar" (click)="cerrarAboutMeDatos()">
+          Cancelar
+        </button>
+      </div>
     </div>
     <div class="grid-item"></div>
   </div>

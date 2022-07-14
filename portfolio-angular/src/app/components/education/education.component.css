@@ -23,3 +23,8 @@ button{
   .modal-title{
     justify-content: center;
   }
+
+  .imgEducac{
+    height: 150px;
+    width: auto;
+  }

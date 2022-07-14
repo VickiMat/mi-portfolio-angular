@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { faEdit, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
@@ -18,23 +17,13 @@ export class EducationComponent implements OnInit {
   faEdit = faEdit;
   faAdd = faPlus;
   faTrash = faTrash;
-  educationForm: FormGroup;
   public editEducation:Educacion | undefined;
   public deleteEducation:Educacion | undefined;
   public educations:Educacion[]=[];
 
-  constructor(private educacionService: EducacionService,
-    private formBuilder: FormBuilder) {
+  constructor(private educacionService: EducacionService) {
 
-//agregar mas validaciones
-        this.educationForm = this.formBuilder.group({
-          id: [''],
-          nombre_titulo: ['', [Validators.required]],
-          año: ['', [Validators.required]],
-          logo: ['', [Validators.required]],
-          instituto: ['', [Validators.required]],
-          certificado: ['', [Validators.required]],
-        })
+
      }
 
   ngOnInit(): void {
@@ -54,27 +43,7 @@ export class EducationComponent implements OnInit {
       }
     })
   }
-
-  private clearForm(){
-    this.educationForm.setValue({
-      id: '',
-      nombre_titulo: '',
-      año: '',
-      logo: '',
-      instituto: '',
-      certificado: ''
-    })
-  }
-
- /* onSubmit(){
-    let educacion: any = this.educationForm.value;
-    this.miServicio.guardarNuevaEducacion(educacion).subscribe(
-      (newEducation: Educacion) => {
-        this.educacionList.push(newEducacion);
-      }
-    );
-  } */
-
+//MODALES
   public onOpenModal(mode:String, educacion?: Educacion):void{
     const container=document.getElementById('main-container');
     const button=document.createElement('button');
@@ -93,6 +62,7 @@ export class EducationComponent implements OnInit {
     button.click();
   }
 
+  //AGREGAR NUEVA EDUCACION
   public onAddEducation(addForm:NgForm){
     this.educacionService.addEducation(addForm.value).subscribe({
       next:(response:Educacion) => {
@@ -108,6 +78,7 @@ export class EducationComponent implements OnInit {
     document.getElementById('add-education-form')?.click();
   }
 
+  //EDITAR EDUCACIONES
   public onUpdateEducation(editForm:NgForm){
     this.editEducation=editForm.value;
     this.educacionService.updateEducation(this.editEducation as Educacion).subscribe({

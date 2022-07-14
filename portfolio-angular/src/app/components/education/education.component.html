@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row" *ngFor="let pepito of educations">
       <div class="col-3">
-        <img [src]="pepito.logo" />
+        <img [src]="pepito.logo" class="imgEducac"/>
       </div>
       <div class="col-7">
         <h2>{{ pepito.nombre_titulo }}</h2>
@@ -353,62 +353,4 @@
         </div>
       </div>
     </div>
-
-  <!--
-              <input type="hidden" name="id" formControlName="id">
-
-              <div class="row mb-3">
-                <label for="nombre_titulo" class="col-sm-2 col-form-label">Nombre del título</label>
-                <div class="col-sm-10">
-                  <input type="text" name="nombre_titulo" formControlName="nombre_titulo" class="form-control" required="true">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="inicio" class="col-sm-2 col-form-label">Fecha inicio</label>
-                <div class="col-sm-10">
-                  <input type="text" name="inicio" formControlName="inicio" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="fin" class="col-sm-2 col-form-label">Fecha fin</label>
-                <div class="col-sm-10">
-                  <input type="text" name="fin" formControlName="fin" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="logo" class="col-sm-2 col-form-label">Logo</label>
-                <div class="col-sm-10">
-                  <input type="text" name="logo" formControlName="logo" class="form-control" required>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="instituto" class="col-sm-2 col-form-label">Instituto</label>
-                <div class="col-sm-10">
-                  <input type="text" name="instituto" formControlName="instituto" class="form-control" required="true">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="descripcion" class="col-sm-2 col-form-label">Descripción</label>
-                <div class="col-sm-10">
-                  <input type="text" name="descripcion" formControlName="descripcion" class="form-control" required="true">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="certificado" class="col-sm-2 col-form-label">Certificado</label>
-                <div class="col-sm-10">
-                  <input type="text" name="certificado" formControlName="certificado" class="form-control" required="true">
-                </div>
-              </div>
-
-              <div class="text-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
-              </div>
-            -->
 </section>

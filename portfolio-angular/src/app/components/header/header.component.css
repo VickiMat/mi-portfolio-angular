@@ -24,7 +24,7 @@ header{
   border-color: black;
 
 }
-  
+
   #argprog {
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 15px;
@@ -66,18 +66,17 @@ header{
 
   button{
     background-color: transparent;
-    border-color: white;
+    border-color: black;
     border: 10px;
     border-radius: 10px;
     width: auto;
     height: auto;
     font-size: 25px;
     text-align:center;
-    margin-left:60%;
+    margin-left:40%;
   }
-  
+
   button:hover{
-    border-color: white;
     font-size: 30px;
   }
 

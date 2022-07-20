@@ -33,7 +33,8 @@
                 </div>
             </div>
             <div class="col-4 editar">
-                <button><a href="/login" class="login">Iniciar sesión</a></button>
+                <button><a href="/login" class="login" *ngIf="!isLogged">Iniciar sesión</a></button>
+                <button><a href="" (click)="onLogOut()" class="login" *ngIf="isLogged">Cerrar sesión</a></button>
             </div>
         </div>
     </div>

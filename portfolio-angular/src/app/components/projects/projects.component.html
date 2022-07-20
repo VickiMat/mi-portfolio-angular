@@ -17,6 +17,7 @@
                             data-bs-target="#editProyectoModal"
                             data-bs-placement="top"
                             title="Modificar proyecto"
+                            *ngIf="isLogged"
                             >
                                 <fa-icon [icon]="faedit"></fa-icon>
                             </button>
@@ -26,6 +27,7 @@
                             data-bs-target="#deleteProyectoModal"
                             data-bs-placement="top"
                             title="Eliminar proyecto"
+                            *ngIf="isLogged"
                             >
                                 <fa-icon [icon]="faTrash"></fa-icon>
                             </button>
@@ -41,7 +43,8 @@
         data-bs-target="#addProyectoModal"
         data-bs-toggle="modal"
         data-bs-placement="top"
-        title="Agregar proyecto">
+        title="Agregar proyecto"
+        *ngIf="isLogged">
             <fa-icon [icon]="faplus"></fa-icon>
         </button>
     </div>

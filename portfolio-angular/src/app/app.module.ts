@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { interceptorProvider } from './services/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     NgCircleProgressModule.forRoot({})
   ],
-  providers: [PortfolioService],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

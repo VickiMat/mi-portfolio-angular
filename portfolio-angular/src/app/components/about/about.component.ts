@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import { Persona } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-about',
@@ -27,19 +28,24 @@ export class AboutComponent implements OnInit {
   modoEdicionFoto = false;
   botonEdicion= true;
   public archivos: any = []
+  isLogged = false;
 
 
 
 
 
-
-  constructor(private personaService: PersonaService) {}
+  constructor(private personaService: PersonaService, private tokenService: TokenService) {}
 
   ngOnInit(): void{
     this.personaService.getUser().subscribe(data => {
       this.persona = data;
     });
-  }
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
+  };
 
   public getUser():void{
     this.personaService.getUser().subscribe({

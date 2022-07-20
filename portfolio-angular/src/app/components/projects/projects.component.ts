@@ -4,6 +4,7 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Proyecto } from 'src/app/model/proyecto.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TokenService } from 'src/app/services/token.service';
 
 
 
@@ -20,11 +21,18 @@ export class ProjectsComponent implements OnInit {
   public updateProyecto:Proyecto | undefined;
   public deleteProyecto:Proyecto | undefined;
   public proyectos:Proyecto[]=[];
+  isLogged = false;
 
   constructor(private proyectoService: ProyectoService,
-    private formBuilder:FormBuilder) { }
+    private formBuilder:FormBuilder,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
     this.getProyectos
     this.proyectoService.getProyecto().subscribe(data => {
       this.proyecto = data;

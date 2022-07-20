@@ -5,6 +5,7 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { Experiencia } from 'src/app/model/experiencia.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-experience',
@@ -20,14 +21,21 @@ export class ExperienceComponent implements OnInit {
   public updateExperiencia:Experiencia | undefined;
   public deleteExperiencia:Experiencia | undefined;
   public experiencias:Experiencia[]=[];
+  isLogged = false;
 
-  constructor(private experienciaService: ExperienciaService) { }
+  constructor(private experienciaService: ExperienciaService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
     this.getExperiencias
     this.experienciaService.getExperiencia().subscribe(data => {
       this.experiencia = data;
     })
+
   }
   //Mostrar experiencias
   public getExperiencias():void{

@@ -20,14 +20,16 @@
                 data-bs-toggle="modal"
                 data-bs-target="#editExperienciaModal"
                 data-bs-placement="top"
-                title="Modificar experiencia">
+                title="Modificar experiencia"
+                *ngIf="isLogged">
                     <fa-icon [icon]="faEdit"></fa-icon>
                 </button>
                 <button (click)="onOpenModal('delete',item)"
                 data-bs-toggle="modal"
                 data-bs-target="#deleteExperienciaModal"
                 data-bs-placement="top"
-                title="Eliminar experiencia">
+                title="Eliminar experiencia"
+                *ngIf="isLogged">
                     <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
             </div>
@@ -38,7 +40,8 @@
         data-bs-target="#addExperienciaModal"
         data-bs-toggle="modal"
         data-bs-placement="top"
-        title="Agregar experiencia">
+        title="Agregar experiencia"
+        *ngIf="isLogged">
             <fa-icon [icon]="faAdd"></fa-icon>
         </button>
     </div>

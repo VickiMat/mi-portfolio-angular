@@ -16,7 +16,7 @@
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Modificar imagen"
-          *ngIf="botonEdicion"
+          *ngIf="botonEdicion && isLogged"
         >
           <fa-icon [icon]="faEdit"></fa-icon>
         </button>
@@ -40,7 +40,7 @@
         data-bs-placement="top"
         title="Modificar descripción"
         (click)="editAboutMeDesc()"
-        *ngIf="botonEdicion"
+        *ngIf="botonEdicion && isLogged"
       >
         <fa-icon [icon]="faEdit" class="fa-white"></fa-icon>
       </button>
@@ -69,7 +69,7 @@
         title="Modificar datos"
         (click)="editAboutMeDatos()"
         id="edidescrip"
-        *ngIf="botonEdicion"
+        *ngIf="botonEdicion && isLogged"
       >
         <fa-icon [icon]="faEdit"></fa-icon>
       </button>

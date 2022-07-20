@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { EducacionService } from 'src/app/services/educacion.service';
 import { Educacion } from 'src/app/model/educacion.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -20,17 +21,24 @@ export class EducationComponent implements OnInit {
   public editEducation:Educacion | undefined;
   public deleteEducation:Educacion | undefined;
   public educations:Educacion[]=[];
+  isLogged = false;
 
-  constructor(private educacionService: EducacionService) {
+  constructor(private educacionService: EducacionService, private tokenService: TokenService) {
 
 
      }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
     this.getEducations
     this.educacionService.getEducation().subscribe(data => {
       this.educations = data;
-    })
+    });
+
   }
 //traer educaciones
   public getEducations():void{

@@ -14,14 +14,16 @@
         data-bs-toggle="modal"
         data-bs-target="#editSkillModal"
         data-bs-placement="top"
-        title="Modificar skilll">
+        title="Modificar skill"
+        *ngIf="isLogged">
           <fa-icon [icon]="faEdit"></fa-icon>
       </button>
       <button (click)="onOpenModal('delete',item)"
       data-bs-toggle="modal"
       data-bs-target="#deleteSkillModal"
       data-bs-placement="top"
-      title="Eliminar skill">
+      title="Eliminar skill"
+      *ngIf="isLogged">
           <fa-icon [icon]="faTrash"></fa-icon>
       </button>
     </div>
@@ -33,7 +35,8 @@
         data-bs-target="#addSkillModal"
         data-bs-toggle="modal"
         data-bs-placement="top"
-        title="Añadir skill">
+        title="Añadir skill"
+        *ngIf="isLogged">
           <fa-icon [icon]="faAdd"></fa-icon>
       </button>
   </div>

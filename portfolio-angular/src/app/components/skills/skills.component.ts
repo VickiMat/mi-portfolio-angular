@@ -6,6 +6,7 @@ import { SkillService } from 'src/app/services/skill.service';
 import { Skill } from 'src/app/model/skill.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/services/token.service';
 
 
 @Component({
@@ -21,10 +22,16 @@ export class SkillsComponent implements OnInit {
   public updateSkill:Skill | undefined;
   public deleteSkill:Skill | undefined;
   public skills:Skill[]=[];
+  isLogged = false;
 
-  constructor(private skillService: SkillService) { }
+  constructor(private skillService: SkillService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else{
+      this.isLogged = false;
+    }
     this.getSkill
     this.skillService.getSkill().subscribe(data => {
       this.skill = data;

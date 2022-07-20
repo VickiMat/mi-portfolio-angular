@@ -20,6 +20,7 @@
           data-bs-target="#editEducationModal"
           data-bs-placement="top"
           title="Modificar"
+          *ngIf="isLogged"
         >
           <fa-icon [icon]="faEdit"></fa-icon>
         </button>
@@ -29,6 +30,7 @@
           data-bs-target="#deleteEducationModal"
           data-bs-placement="top"
           title="Eliminar"
+          *ngIf="isLogged"
         >
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
@@ -41,6 +43,7 @@
         (click)="onOpenModal('add')"
         data-bs-placement="top"
         title="Añadir educación"
+        *ngIf="isLogged"
       >
         <fa-icon [icon]="faAdd"></fa-icon>
       </button>

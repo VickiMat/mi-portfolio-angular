@@ -9,8 +9,8 @@
         <h2>{{ pepito.nombre_titulo }}</h2>
         <h3>{{ pepito.instituto }}</h3>
         <p>{{ pepito.descripcion }}</p>
-        <p>Fecha comienzo: {{ pepito.inicio }}</p>
-        <p>Fecha fin: {{ pepito.fin }}</p>
+        <p>Fecha de comienzo: {{ pepito.inicio }}</p>
+        <p>Fecha de finalización: {{ pepito.fin }}</p>
         <p>{{ pepito.certificado }}</p>
       </div>
       <div class="col-2">
@@ -35,6 +35,7 @@
           <fa-icon [icon]="faTrash"></fa-icon>
         </button>
       </div>
+      <hr>
     </div>
     <div class="añadir">
       <button
@@ -291,6 +292,12 @@
               />
             </div>
             <div class="modal-footer">
+              <button type="submit"
+
+                class="btn"
+              >
+                Guardar cambios
+              </button>
               <button
                 type="button"
                 id="edit-education-form"
@@ -299,12 +306,7 @@
               >
                 Cerrar
               </button>
-              <button type="submit"
 
-                class="btn"
-              >
-                Guardar cambios
-              </button>
             </div>
           </form>
         </div>

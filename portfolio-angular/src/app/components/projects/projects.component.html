@@ -8,8 +8,8 @@
                     <img [src]="item.img" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{item.nombre}}</h5>
-                        <p class="card-text">{{item.descripcion}}. Realizado en el año: {{item.anio}}</p>
-                        <a href="{{item.url}}" class="btn btn-primary">Link a repositorio</a>
+                        <p class="card-text">{{item.descripcion}}. <br>Realizado en el año {{item.anio}}</p>
+                        <a href="{{item.url}}" class="btn btn-repo">Link al repositorio</a>
                         <div class="editar">
                             <button
                             (click)="onOpenModal('edit', item)"
@@ -231,6 +231,11 @@
               />
             </div>
             <div class="modal-footer">
+              <button type="submit"
+                class="btn"
+              >
+                Guardar cambios
+              </button>
               <button
                 type="button"
                 id="edit-proyecto-form"
@@ -239,11 +244,7 @@
               >
                 Cerrar
               </button>
-              <button type="submit"
-                class="btn"
-              >
-                Guardar cambios
-              </button>
+
             </div>
           </form>
         </div>

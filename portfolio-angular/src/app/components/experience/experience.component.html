@@ -2,18 +2,21 @@
     <h1 class="titulos">Experiencia laboral</h1>
 
     <div class="container-fluid">
-        <div *ngFor="let item of experiencia" class="row" ngClass="border">
+        <div *ngFor="let item of experiencia" class="row">
             <div class="col-2">
                 <img [src]="item.url_img" class="img-fluid" alt="">
             </div>
-            <div class="col-4">
-                <h2>Posición {{item.posicion}}</h2>
-                <p>Empresa:{{item.compania}} - Estilo de trabajo: {{item.modo}}</p>
-                <p>{{item.inicio}} - {{item.fin}}</p>
+            <div class="col-4"><br>
+                <h5>Posición</h5> <p> {{item.posicion}}</p>
+                <h5>Empresa</h5>  <p>{{item.compania}}</p>
+                <h5>Estilo de trabajo</h5> <p>{{item.modo}}</p>
+
             </div>
             <div class="col-4">
-                <h2>Tecnologías usadas</h2>
+              <br>
+                <h5>Tecnologías usadas</h5>
                 <p>{{item.descripcion}}</p>
+                <h5>Período</h5><p>{{item.inicio}} - {{item.fin}}</p>
             </div>
             <div class="col-2">
                 <button (click)="onOpenModal('edit', item)"
@@ -33,18 +36,20 @@
                     <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
             </div>
+            <hr>
+        </div>
+        <div class="añadir">
+          <button (click)="onOpenModal('add')"
+          data-bs-target="#addExperienciaModal"
+          data-bs-toggle="modal"
+          data-bs-placement="top"
+          title="Agregar experiencia"
+          *ngIf="isLogged">
+              <fa-icon [icon]="faAdd"></fa-icon>
+          </button>
         </div>
     </div>
-    <div class="añadir">
-        <button (click)="onOpenModal('add')"
-        data-bs-target="#addExperienciaModal"
-        data-bs-toggle="modal"
-        data-bs-placement="top"
-        title="Agregar experiencia"
-        *ngIf="isLogged">
-            <fa-icon [icon]="faAdd"></fa-icon>
-        </button>
-    </div>
+
 
 <!--MODAL PARA AÑADIR NUEVOS PROYECTOS-->
 <div

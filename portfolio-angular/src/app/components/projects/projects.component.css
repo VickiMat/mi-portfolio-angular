@@ -20,6 +20,20 @@ button:hover{
   color: black;
 }
 
+.btn-repo{
+  background-color: transparent;
+  border-color: darkmagenta;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  font-size: 15px;
+  color: black;
+}
+.btn-repo:hover{
+  border-color: black;
+  font-size: 16px;
+  color: black;
+}
   .añadir{
       display: flex;
       justify-content: center;
@@ -29,4 +43,9 @@ button:hover{
   .editar{
       display: flex;
       justify-content: flex-end;
+  }
+
+  .card-img-top{
+    height: 1S0px;
+    width: auto;
   }

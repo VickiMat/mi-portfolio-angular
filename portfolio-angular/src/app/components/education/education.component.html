@@ -1,4 +1,4 @@
-<section>
+<section id="educacion">
   <h2 class="titulos">Educación</h2>
   <div class="container-fluid">
     <div class="row" *ngFor="let pepito of educations">
@@ -37,7 +37,7 @@
       </div>
       <hr>
     </div>
-    <div class="añadir">
+    <div class="container-fluid añadir" style="text-align: center;">
       <button
         data-bs-toggle="modal"
         data-bs-target="#addEducationModal"
@@ -45,7 +45,7 @@
         data-bs-placement="top"
         title="Añadir educación"
         *ngIf="isLogged"
-      >
+      >Añadir educación
         <fa-icon [icon]="faAdd"></fa-icon>
       </button>
     </div>

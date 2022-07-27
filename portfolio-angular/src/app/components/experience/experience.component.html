@@ -38,13 +38,13 @@
             </div>
             <hr>
         </div>
-        <div class="añadir">
+        <div class="container-fluid añadir" style="text-align: center;">
           <button (click)="onOpenModal('add')"
           data-bs-target="#addExperienciaModal"
           data-bs-toggle="modal"
           data-bs-placement="top"
           title="Agregar experiencia"
-          *ngIf="isLogged">
+          *ngIf="isLogged">Añadir experiencia
               <fa-icon [icon]="faAdd"></fa-icon>
           </button>
         </div>

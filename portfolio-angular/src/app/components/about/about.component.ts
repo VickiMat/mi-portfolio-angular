@@ -19,10 +19,11 @@ export class AboutComponent implements OnInit {
   persona : Persona = new Persona();
   form!:FormGroup;
   public editPersona: Persona | undefined;
-  descripcion! : String;
+  descripcion: String= "";
   nombre! : String;
   apellido! : String;
   titulo! : String;
+  img!:String;
   modoEdicionDescripcion = false;
   modoEdicionDatos = false;
   modoEdicionFoto = false;
@@ -61,6 +62,7 @@ export class AboutComponent implements OnInit {
   editAboutMeDesc(){
     this.modoEdicionDescripcion=true;
     this.botonEdicion=false;
+    this.descripcion = this.persona.descripcion;
   }
 
   guardarAboutMeDesc(){
@@ -87,6 +89,9 @@ export class AboutComponent implements OnInit {
   editAboutMeDatos(){
     this.modoEdicionDatos = true;
     this.botonEdicion = false;
+    this.nombre = this.persona.nombre;
+    this.apellido = this.persona.apellido;
+    this.titulo = this.persona.titulo;
   }
 
   guardarAboutMeDatos(){
@@ -110,21 +115,16 @@ export class AboutComponent implements OnInit {
     this.botonEdicion = true;
   }
 
-/*EDITAR FOTO PERFIL
+//EDITAR FOTO PERFIL
 editAboutMeFoto(){
   this.modoEdicionFoto = true;
   this.botonEdicion = false;
+  this.img = this.persona.img;
 }
 
-public capturarFile(event:any):any{
-  const archivoCapturado = event.target.files[0];
-  this.archivos.push(archivoCapturado)
 
-  //console.log(event.target.files);
-
-}
-guardarAboutMeFoto(): any{
-  this.persona.img = img
+guardarAboutMeFoto(){
+  this.persona.img = this.img
   this.personaService.updatePersonaFoto(this.persona).subscribe({
     next:(response:Persona) => {
       console.log(response);
@@ -135,10 +135,11 @@ guardarAboutMeFoto(): any{
     }
   })
   this.modoEdicionFoto=false;
+  this.botonEdicion = true;
 }
 cerrarAboutMeFoto(){
   this.modoEdicionFoto=false;
+  this.botonEdicion = true;
 }
-*/
 
 }

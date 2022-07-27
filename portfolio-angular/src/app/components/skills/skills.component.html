@@ -1,4 +1,4 @@
-<section>
+<section id="skills">
   <h2 class="titulos">Habilidades</h2>
 
   <div class="container-fluid">
@@ -28,7 +28,7 @@
       </button>
     </div>
       </div>
-    </div>
+    </div><br>
     <div class="añadir">
       <button
         (click)="onOpenModal('add')"
@@ -36,7 +36,7 @@
         data-bs-toggle="modal"
         data-bs-placement="top"
         title="Añadir skill"
-        *ngIf="isLogged">
+        *ngIf="isLogged">Añadir habilidad
           <fa-icon [icon]="faAdd"></fa-icon>
       </button>
   </div>

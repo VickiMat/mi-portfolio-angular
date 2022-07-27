@@ -29,5 +29,9 @@ export class PersonaService {
     return this.http.put<Persona>(`${this.apiServerUrl}/personas/editarDatos?id=1&nombre=${persona.nombre}&apellido=${persona.apellido}&titulo=${persona.titulo}`,persona);
   }
 
+  public updatePersonaFoto(persona:Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.apiServerUrl}/personas/editarImagen?id=1&img=${persona.img}`,persona);
+  }
+
   }
 

@@ -12,6 +12,7 @@
           id="foto-perfil"
         />
         <button
+        (click)="editAboutMeFoto()"
           class="boton-edicion-img"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
@@ -21,13 +22,13 @@
           <fa-icon [icon]="faEdit"></fa-icon>
         </button>
         <div *ngIf="modoEdicionFoto">
-          <h5>Seleccionar una foto</h5>
-          <input (change)="($event)" type="file">
+          <h5>Insertar url de imagen</h5>
+          <input type="text" name="img" id="img" value="img" [(ngModel)]="img" /><br>
           <br />
-          <button class="btn-guardar">
+          <button class="btn-guardar" (click)="guardarAboutMeFoto()">
             Guardar
           </button>
-          <button class="btn-guardar">
+          <button class="btn-guardar" (click)="cerrarAboutMeFoto()">
             Cancelar
           </button>
         </div>
@@ -75,11 +76,11 @@
       </button>
       <div *ngIf="modoEdicionDatos">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value="nombe" [(ngModel)]="nombre" /><br>
+        <input type="text" name="nombre" id="nombre"  [(ngModel)]="nombre" /><br>
         <label for="apellido">Apellido:</label>
         <input type="text" name="apellido" id="apellido" [(ngModel)]="apellido"/><br>
         <label for="titulo">Titulo:</label>
-        <input type="text" name="titulo" [(ngModel)]="titulo" value={{persona.titulo}}/><br>
+        <input type="text" name="titulo" [(ngModel)]="titulo" /><br>
         <button class="btn-guardar" (click)="guardarAboutMeDatos()">
           Guardar
         </button>
